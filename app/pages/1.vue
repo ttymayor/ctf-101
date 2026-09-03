@@ -21,11 +21,13 @@ const handleErrorFlow = Effect.gen(function* () {
   errorMsg.value = "";
 });
 
+const { unlockStage } = useStageProgress();
+
 const handleSuccessFlow = Effect.gen(function* () {
   isSuccess.value = true;
+  unlockStage(2);
   if (import.meta.client) {
     confetti({
-      particleCount: 90,
       spread: 70,
       origin: { y: 0.6 },
     });

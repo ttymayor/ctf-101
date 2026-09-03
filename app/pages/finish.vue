@@ -5,6 +5,12 @@ useHead({
   title: "通關成功！ - 駭客社 新生 CTF 闖關",
 });
 
+const { resetProgress } = useStageProgress();
+
+const handleRestart = async () => {
+  resetProgress();
+  await navigateTo("/");
+};
 onMounted(() => {
   if (import.meta.client) {
     // 兩側連發彩帶特效慶祝全通關
@@ -50,10 +56,10 @@ onMounted(() => {
 
     <div class="w-full pt-1">
       <UButton
-        to="/"
         size="lg"
         block
         class="w-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-black text-sm rounded-xs transition-transform active:scale-95 cursor-pointer justify-center"
+        @click="handleRestart"
       >
         再玩一次 / 返回首頁
       </UButton>

@@ -19,11 +19,13 @@ const handleErrorFlow = Effect.gen(function* () {
   errorMsg.value = "";
 });
 
+const { unlockStage } = useStageProgress();
+
 const handleSuccessFlow = Effect.gen(function* () {
   isSuccess.value = true;
+  unlockStage(3);
   if (import.meta.client) {
     confetti({
-      particleCount: 90,
       spread: 70,
       origin: { y: 0.6 },
     });
@@ -102,13 +104,7 @@ onUnmounted(() => {
             : 'bg-amber-500 hover:bg-amber-400 active:bg-amber-600 disabled:bg-amber-600 text-neutral-950',
         ]"
       >
-        {{
-          isSuccess
-            ? "🎉 答對了！前往下一關..."
-            : errorMsg
-              ? "❌ Flag 錯誤！"
-              : "繳交 Flag 🚩"
-        }}
+        {{ isSuccess ? "🎉 答對了！前往下一關..." : errorMsg ? "❌ Flag 錯誤！" : "繳交 Flag 🚩" }}
       </UButton>
     </UForm>
   </div>
