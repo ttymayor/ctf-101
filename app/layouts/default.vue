@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen max-w-md mx-auto flex flex-col justify-center px-6 py-10 select-none">
     <UCard
-      class="w-full border-neutral-800 bg-neutral-900/90 shadow-2xl"
+      class="w-full min-h-[280px] border-neutral-800 bg-neutral-900/90 shadow-2xl transition-[height] duration-200"
       :ui="{ body: 'sm:p-4 p-4', header: 'sm:px-4 px-3 py-3' }"
     >
       <template #header>

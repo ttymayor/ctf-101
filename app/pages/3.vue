@@ -78,72 +78,75 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col items-start gap-4">
-    <div class="flex flex-col items-start gap-2">
-      <CommandLine>./question-3</CommandLine>
-      <h1 class="text-2xl font-black text-white">看圖找座標 📍</h1>
-      <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-        身為資安調查員，常需透過公開情報（OSINT）從照片推敲線索。<br />
-        請找出照片中著名地標的經緯度座標，數值<strong>四捨五入至小數點後兩位</strong>即可（亦接受範圍內的詳細座標）。
-      </p>
-      <div
-        class="text-[11px] text-purple-300 bg-purple-950/40 border border-purple-800/60 px-2.5 py-1.5 rounded-xs w-full font-mono"
-      >
-        格式：thuctf{緯度_經度}，例如 thuctf{25.03_121.56}
+  <TerminalSession class="w-full flex flex-col items-start gap-4 min-h-[520px]">
+    <CommandLine>./question-3</CommandLine>
+
+    <TerminalOutput class="w-full flex flex-col items-start gap-4">
+      <div class="flex flex-col items-start gap-2">
+        <h1 class="text-2xl font-black text-white">看圖找座標 📍</h1>
+        <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+          身為資安調查員，常需透過公開情報（OSINT）從照片推敲線索。<br />
+          請找出照片中著名地標的經緯度座標，數值<strong>四捨五入至小數點後兩位</strong>即可（亦接受範圍內的詳細座標）。
+        </p>
+        <div
+          class="text-[11px] text-purple-300 bg-purple-950/40 border border-purple-800/60 px-2.5 py-1.5 rounded-xs w-full font-mono"
+        >
+          格式：thuctf{緯度_經度}，例如 thuctf{25.03_121.56}
+        </div>
       </div>
-    </div>
 
-    <!-- Image Display -->
-    <a
-      :href="imageUrl"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group relative block w-full overflow-hidden rounded-xs ring-1 ring-muted/50 bg-black/40"
-    >
-      <img
-        :src="imageUrl"
-        alt="目標建築照片"
-        class="w-full h-44 sm:h-52 object-cover transition-transform duration-300 group-hover:scale-105"
-        loading="lazy"
-      />
-      <div
-        class="absolute bottom-2 right-2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-[10px] text-neutral-300 border border-white/10 group-hover:text-white"
+      <!-- Image Display -->
+      <a
+        :href="imageUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative block w-full overflow-hidden rounded-xs ring-1 ring-muted/50 bg-black/40"
       >
-        🔍 點擊查看大圖
-      </div>
-    </a>
+        <img
+          :src="imageUrl"
+          alt="目標建築照片"
+          class="w-full h-44 sm:h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div
+          class="absolute bottom-2 right-2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-[10px] text-neutral-300 border border-white/10 group-hover:text-white"
+        >
+          🔍 點擊查看大圖
+        </div>
+      </a>
 
-    <!-- Submission Form -->
-    <UForm class="w-full flex flex-col gap-2" @submit.prevent="submitFlag">
-      <UInput
-        v-model="state.inputFlag"
-        type="text"
-        size="lg"
-        placeholder="thuctf{25.03_121.56}"
-        class="w-full font-mono"
-        :ui="{
-          base: 'rounded-xs focus-visible:outline-purple-500/50 focus-visible:ring-purple-500',
-        }"
-      />
+      <!-- Submission Form -->
+      <UForm class="w-full flex flex-col gap-2" @submit.prevent="submitFlag">
+        <UInput
+          v-model="state.inputFlag"
+          type="text"
+          size="lg"
+          placeholder="thuctf{25.03_121.56}"
+          class="w-full font-mono"
+          :ui="{
+            base: 'rounded-xs focus-visible:outline-purple-500/50 focus-visible:ring-purple-500',
+          }"
+        />
 
-      <UButton
-        type="submit"
-        :disabled="isSuccess"
-        size="lg"
-        block
-        :class="[
-          'w-full rounded-xs font-bold text-sm transition-all active:scale-97 justify-center',
-          errorMsg
-            ? 'bg-error hover:bg-error active:bg-error text-white shadow-red-500/20 animate-[shake_0.15s_linear_3]'
-            : 'bg-purple-500 hover:bg-purple-400 active:bg-purple-600 disabled:bg-purple-600 text-neutral-950',
-        ]"
-      >
-        {{ isSuccess ? "🎉 答對了！前往結算..." : errorMsg ? "❌ 座標錯誤！" : "繳交 Flag 🚩" }}
-      </UButton>
+        <UButton
+          type="submit"
+          :disabled="isSuccess"
+          size="lg"
+          block
+          :class="[
+            'w-full rounded-xs font-bold text-sm transition-all active:scale-97 justify-center',
+            errorMsg
+              ? 'bg-error hover:bg-error active:bg-error text-white shadow-red-500/20 animate-[shake_0.15s_linear_3]'
+              : 'bg-purple-500 hover:bg-purple-400 active:bg-purple-600 disabled:bg-purple-600 text-neutral-950',
+          ]"
+        >
+          {{ isSuccess ? "🎉 答對了！前往結算..." : errorMsg ? "❌ 座標錯誤！" : "繳交 Flag 🚩" }}
+        </UButton>
 
-      <p v-if="errorMsg" class="text-xs text-red-400 text-center">
-        {{ errorMsg }}
-      </p>
-    </UForm>
-  </div>
+        <p v-if="errorMsg" class="text-xs text-red-400 text-center">
+          {{ errorMsg }}
+        </p>
+      </UForm>
+    </TerminalOutput>
+  </TerminalSession>
 </template>
