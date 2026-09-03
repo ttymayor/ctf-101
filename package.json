@@ -18,6 +18,7 @@
     "@iconify-json/simple-icons": "^1.2.94",
     "@nuxt/ui": "^4.11.0",
     "canvas-confetti": "^1.9.4",
+    "effect": "4.0.0-rc.112",
     "nuxt": "^4.5.2",
     "tailwindcss": "^4.3.3"
   },
