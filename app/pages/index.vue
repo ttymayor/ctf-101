@@ -13,7 +13,7 @@ useHead({
     <TerminalOutput>
       <TerminalCallout>
         <h1 class="font-black text-white tracking-tight">🚩 東海駭客社 THU Hacker Club</h1>
-        <p class="text-sm text-neutral-400">新生攤位 CTF 解謎闖關</p>
+        <p class="text-sm text-muted">新生攤位 CTF 解謎闖關</p>
       </TerminalCallout>
     </TerminalOutput>
 

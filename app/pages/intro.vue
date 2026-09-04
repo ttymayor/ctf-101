@@ -66,7 +66,7 @@ onUnmounted(() => {
     <TerminalOutput>
       <div class="flex flex-col items-start gap-2">
         <h1 class="text-2xl font-black text-white">什麼是 CTF？</h1>
-        <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-muted leading-relaxed">
           <strong> CTF（Capture The Flag，奪旗賽）</strong
           >是資安領域的解謎競技。參賽者要在題目中找出格式如
           <code class="text-emerald-400 font-mono">thuctf{...}</code>
@@ -76,7 +76,7 @@ onUnmounted(() => {
 
       <!-- Answer written directly on page -->
       <div class="w-full flex flex-col items-start gap-2">
-        <div class="text-xs text-neutral-400">本關答案（請複製並繳交）：</div>
+        <div class="text-xs text-muted">本關答案（請複製並繳交）：</div>
         <div
           class="w-full p-2.5 bg-black/20 rounded-xs text-emerald-400 font-mono font-bold text-xs sm:text-sm select-all break-all ring-1 ring-muted"
         >
