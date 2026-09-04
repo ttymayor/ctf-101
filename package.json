@@ -20,6 +20,7 @@
     "canvas-confetti": "^1.9.4",
     "effect": "4.0.0-rc.112",
     "nuxt": "^4.5.2",
+    "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {

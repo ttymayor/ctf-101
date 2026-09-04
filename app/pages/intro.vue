@@ -60,10 +60,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <TerminalSession class="w-full flex flex-col items-start gap-4 min-h-[320px]">
+  <TerminalSession class="min-h-[324px]">
     <CommandLine>./intro</CommandLine>
 
-    <TerminalOutput class="w-full flex flex-col items-start gap-4">
+    <TerminalOutput>
       <div class="flex flex-col items-start gap-2">
         <h1 class="text-2xl font-black text-white">什麼是 CTF？</h1>
         <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">

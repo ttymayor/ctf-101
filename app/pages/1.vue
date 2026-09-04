@@ -62,13 +62,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <TerminalSession class="w-full flex flex-col items-start gap-4 min-h-[320px]">
+  <TerminalSession class="min-h-[325px]">
     <CommandLine>./question-1</CommandLine>
 
-    <TerminalOutput class="w-full flex flex-col items-start gap-4">
-      <div class="flex flex-col items-start gap-2">
+    <TerminalOutput>
+      <div class="flex flex-col gap-2">
         <h1 class="text-2xl font-black text-white">編碼不是加密！</h1>
-        <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-muted leading-relaxed">
           這是一段特殊字串，特徵是尾端的
           <code>=</code> 聽說這是被一套運算後的結果，你有辦法復原嗎？
         </p>

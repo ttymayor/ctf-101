@@ -78,12 +78,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <TerminalSession class="w-full flex flex-col items-start gap-4 min-h-[520px]">
+  <TerminalSession class="min-h-[528px]">
     <CommandLine>./question-3</CommandLine>
 
-    <TerminalOutput class="w-full flex flex-col items-start gap-4">
+    <TerminalOutput>
       <div class="flex flex-col items-start gap-2">
-        <h1 class="text-2xl font-black text-white">看圖找座標 📍</h1>
+        <h1 class="text-2xl font-black text-white">歡迎來到東海大學！</h1>
         <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
           身為資安調查員，常需透過公開情報（OSINT）從照片推敲線索。<br />
           請找出照片中著名地標的經緯度座標，數值<strong>四捨五入至小數點後兩位</strong>即可（亦接受範圍內的詳細座標）。

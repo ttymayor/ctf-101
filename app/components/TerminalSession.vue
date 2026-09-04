@@ -9,7 +9,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="w-full flex flex-col gap-4">
+  <div class="w-full flex flex-col gap-4 items-start">
     <slot :current-step="currentStep" :next-step="nextStep" :reset="reset" />
   </div>
 </template>
