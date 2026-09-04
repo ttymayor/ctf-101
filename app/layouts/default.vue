@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="min-h-dvh max-w-md mx-auto flex flex-col justify-center px-6 py-10 select-none"
-  >
+  <div class="min-h-dvh max-w-md mx-auto flex flex-col justify-center px-6 py-10 select-none">
     <UCard
       class="w-full min-h-[280px] border-neutral-800 bg-neutral-900/90 shadow-2xl transition-[height] duration-200"
       :ui="{
